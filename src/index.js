@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux';
+import { reducer } from './reducers/Reducer';
+import Calculator from './Calculator';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+const store = createStore(reducer);
+const onAction = symbol => store.dispatch({ type: 'BAO', symbol: symbol });
+const render = () => ReactDOM.render(
+  <Calculator
+    value={store.getState()}
+    onAction={onAction} />,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+render();
+store.subscribe(render);
 reportWebVitals();

@@ -1,0 +1,23 @@
+body {
+  background-color: black;
+  color: white;
+  
+}
+
+.Calculator {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.calc-wrapper {
+  background-color: white;
+  width: 400px;
+  border-radius: 16px;
+  color: black;
+}
+
+.row {
+  display: flex;
+}
