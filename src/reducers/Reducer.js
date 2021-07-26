@@ -85,7 +85,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return state;
     }
     const curExpr = state.expr + state.lastOp + getNum(state.lastNum);
-    const ans = evaluate(curExpr);
+    const ans = Math.round(1000000000000 * evaluate(curExpr)) / 1000000000000;
     changes = {
       expr: ans.toString(),
       lastOp: "",
